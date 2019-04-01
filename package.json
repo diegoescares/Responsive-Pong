@@ -1,11 +1,10 @@
 {
-  "name": "Pong",
+  "name": "Responsive Pong",
   "version": "0.0.1",
-  "description": "Pong game in angular",
+  "description": "Responsive Pong. Game pong in angular.",
   "main": "gulpfile.coffee",
   "devDependencies": {
     "bower": "^1.7.0",
-    "coffee-script": "^1.12.7",
     "coffeescript": "^2.3.2",
     "gulp": "^3.9.1",
     "gulp-add-src": "^0.2.0",
