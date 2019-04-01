@@ -14,6 +14,16 @@ body {
   line-height: 22px;
   -webkit-font-smoothing: antialiased;
 }
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+}
 .console .console__code {
   opacity: 0.25;
   padding: 40px;
@@ -45,6 +55,42 @@ body {
   height: 100%;
   overflow: hidden;
 }
+.game .game__names {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  padding: 30px;
+  background: #222;
+  margin-left: -150px;
+  margin-top: -100px;
+  border-radius: 3px;
+}
+.game .game__names input {
+  padding: 10px 20px;
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #333;
+  font-size: 20px;
+  border-radius: 3px;
+}
+.game .game__names button {
+  display: block;
+  padding: 10px 20px;
+  width: 100%;
+  display: block;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.2s ease;
+  border-radius: 3px;
+}
+.game .game__names button:hover {
+  opacity: 1;
+}
 .game .game__grid {
   position: relative;
   height: 100%;
@@ -55,6 +101,10 @@ body {
   float: left;
   border-right: 1px solid #191919;
   border-bottom: 1px solid #191919;
+}
+.game .game__elements {
+  -webkit-animation: fadeIn 0.5s ease;
+          animation: fadeIn 0.5s ease;
 }
 .game .game__ball {
   position: absolute;
@@ -86,6 +136,7 @@ body {
   top: 0;
   width: 20px;
   height: 100px;
+  border-radius: 20px;
   background: #fff;
   transition: 0.1s ease;
 }

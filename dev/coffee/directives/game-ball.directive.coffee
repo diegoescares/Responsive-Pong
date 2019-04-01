@@ -24,9 +24,9 @@ app.directive 'gameBall', ($timeout,$window) ->
 			reset: ->
 				this.position.x = $window.innerWidth / 2 - this.size / 2
 				this.position.y = $window.innerHeight / 2 -this.size / 2
-				$scope.game.playing = false
+				this.moving = false
 				$timeout ->
-					$scope.game.playing = true
+					$scope.game.ball.moving = true
 				,1000
 
 			move: ->
@@ -71,7 +71,7 @@ app.directive 'gameBall', ($timeout,$window) ->
 				newPosX = this.position.x + this.pixelAument * this.direction.x
 				newPosY = this.position.y + this.pixelAument * this.direction.y
 
-				if $scope.game.playing
+				if this.moving
 					this.position.x = newPosX
 					this.position.y = newPosY
 

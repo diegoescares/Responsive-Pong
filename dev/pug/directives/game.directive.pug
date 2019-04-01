@@ -4,10 +4,17 @@
 	.game__grid
 		div(ng-repeat="g in grid track by $index")
 
-	game-player(game="game" spot="left")
-	game-player(game="game" spot="right")
-	game-ball(game="game")
+	.game__elements(ng-if="game.playing")
+		game-player(game="game" spot="left")
+		game-player(game="game" spot="right")
+		game-ball(game="game")
 
+	.game__names(ng-if="!game.playing")
+		.game__names__bg
+		.game__names__box
+			input(type="text" placeholder="Name player 1" ng-model="game.players.left.name")
+			input(type="text" placeholder="Name player 2" ng-model="game.players.right.name")
+			button(ng-click="game.start()") Start
 
 	.console
 		.console__code(ng-if="console")

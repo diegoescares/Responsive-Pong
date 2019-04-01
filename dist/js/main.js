@@ -379,9 +379,9 @@ app.directive('gameBall', function($timeout, $window) {
         reset: function() {
           this.position.x = $window.innerWidth / 2 - this.size / 2;
           this.position.y = $window.innerHeight / 2 - this.size / 2;
-          $scope.game.playing = false;
+          this.moving = false;
           return $timeout(function() {
-            return $scope.game.playing = true;
+            return $scope.game.ball.moving = true;
           }, 1000);
         },
         move: function() {
@@ -412,7 +412,7 @@ app.directive('gameBall', function($timeout, $window) {
           }
           newPosX = this.position.x + this.pixelAument * this.direction.x;
           newPosY = this.position.y + this.pixelAument * this.direction.y;
-          if ($scope.game.playing) {
+          if (this.moving) {
             this.position.x = newPosX;
             this.position.y = newPosY;
           }
@@ -439,11 +439,10 @@ app.directive('gamePlayer', function($window) {
     link: function($scope, $el) {
       var pixelVelocity;
       pixelVelocity = 20;
-      $scope.player = {
-        score: 0,
-        position: $window.innerHeight / 2 - 50
-      };
-      $scope.player.move = {
+      $scope.player = $scope.game.players[$scope.spot];
+      $scope.player.score = 0;
+      $scope.player.position = $window.innerHeight / 2 - 50;
+      return $scope.player.move = {
         up: function() {
           var newPosition;
           newPosition = $scope.player.position - pixelVelocity;
@@ -464,7 +463,6 @@ app.directive('gamePlayer', function($window) {
           return $scope.$apply();
         }
       };
-      return $scope.game.players[$scope.spot] = $scope.player;
     }
   };
 });
@@ -477,8 +475,16 @@ app.directive('game', function($document, $window) {
     link: function($scope, el) {
       var i, j;
       $scope.game = {
-        players: {},
-        playing: false
+        playing: false,
+        players: {
+          left: {},
+          right: {}
+        },
+        start: function() {
+          if (this.players.left.name && this.players.right.name) {
+            return this.playing = true;
+          }
+        }
       };
       $scope.grid = [];
       for (i = j = 1; j <= 50; i = ++j) {
@@ -496,14 +502,6 @@ app.directive('game', function($document, $window) {
             return $scope.game.players.right.move.down();
         }
       };
-    }
-  };
-});
-
-app.service("$API", function($http, $rootScope) {
-  return {
-    getForms: function(data) {
-      return "json/forms.json";
     }
   };
 });

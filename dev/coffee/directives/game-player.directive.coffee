@@ -10,9 +10,10 @@ app.directive 'gamePlayer', ($window) ->
 
 		pixelVelocity = 20
 
-		$scope.player =
-			score: 0
-			position: $window.innerHeight / 2 - 50
+		$scope.player = $scope.game.players[$scope.spot]
+
+		$scope.player.score = 0
+		$scope.player.position = $window.innerHeight / 2 - 50
 
 		$scope.player.move =
 
@@ -33,5 +34,5 @@ app.directive 'gamePlayer', ($window) ->
 				$scope.player.position = newPosition
 				$scope.$apply()
 
-		$scope.game.players[$scope.spot] = $scope.player
+
 

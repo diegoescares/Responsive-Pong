@@ -7,6 +7,41 @@
 	height 100%
 	overflow hidden
 
+	.game__names
+		position absolute
+		top 50%
+		left 50%
+		width 300px
+		padding 30px
+		background #222
+		margin-left -150px
+		margin-top -100px
+		border-radius 3px
+
+		input
+			padding 10px 20px
+			width 100%
+			display block
+			margin-bottom 10px
+			background transparent
+			color white
+			border 1px solid #333
+			font-size 20px
+			border-radius 3px
+
+		button
+			display block
+			padding 10px 20px
+			width 100%
+			display block
+			font-size 20px
+			cursor pointer
+			opacity .8
+			transition .2s ease
+			border-radius 3px
+			&:hover
+				opacity 1
+
 	.game__grid
 		position relative
 		height 100%
@@ -16,6 +51,9 @@
 			float left
 			border-right 1px solid #191919
 			border-bottom 1px solid #191919	
+	
+	.game__elements
+		animation fadeIn .5s ease
 
 	.game__ball
 		position absolute
@@ -47,6 +85,7 @@
 			top 0
 			width 20px
 			height 100px
+			border-radius 20px
 			background white
 			transition .1s ease
 

@@ -8,8 +8,14 @@ app.directive 'game', ($document,$window) ->
 		# Game main object
 
 		$scope.game = 
-			players: {}
 			playing: false
+			players:
+				left: {}
+				right: {}
+			start: ->
+				if this.players.left.name && this.players.right.name
+					this.playing = true
+
 
 
 		# Grid
