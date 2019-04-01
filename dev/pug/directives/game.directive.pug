@@ -8,5 +8,12 @@
 	game-player(game="game" spot="right")
 	game-ball(game="game")
 
-	// pre.console {{game | json}} // Main game object
+
+	.console
+		.console__code(ng-if="console")
+			pre {{game | json}}
+		.console__link
+			label
+				input(type="checkbox" ng-model="console")
+				|  Show console
 

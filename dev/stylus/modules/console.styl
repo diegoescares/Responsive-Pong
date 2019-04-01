@@ -1,7 +1,23 @@
 
 .console
-	opacity .25
-	padding 30px 100px
-	position absolute
-	top 0
-	left 0
+
+	.console__code
+		opacity .25
+		padding 40px
+		position absolute
+		top 0
+		left 0
+
+	.console__link
+		position absolute
+		bottom 40px
+		left 40px
+
+		label
+			cursor pointer
+			opacity .4
+			transition .2s ease
+			&:hover
+				opacity 1
+			input
+				margin-right 5px

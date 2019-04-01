@@ -7,19 +7,35 @@
        box-sizing: border-box;
 }
 body {
-  background-color: #111;
+  background: #111;
+  color: #fff;
   font-family: sans-serif;
   font-size: 15px;
   line-height: 22px;
-  color: #fff;
   -webkit-font-smoothing: antialiased;
 }
-.console {
+.console .console__code {
   opacity: 0.25;
-  padding: 30px 100px;
+  padding: 40px;
   position: absolute;
   top: 0;
   left: 0;
+}
+.console .console__link {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+}
+.console .console__link label {
+  cursor: pointer;
+  opacity: 0.4;
+  transition: 0.2s ease;
+}
+.console .console__link label:hover {
+  opacity: 1;
+}
+.console .console__link label input {
+  margin-right: 5px;
 }
 .game {
   position: absolute;

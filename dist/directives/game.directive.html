@@ -6,5 +6,14 @@
   <game-player game="game" spot="left"></game-player>
   <game-player game="game" spot="right"></game-player>
   <game-ball game="game"></game-ball>
-  <!-- pre.console {{game | json}} // Main game object-->
+  <div class="console">
+    <div class="console__code" ng-if="console">
+      <pre>{{game | json}}</pre>
+    </div>
+    <div class="console__link">
+      <label>
+        <input type="checkbox" ng-model="console"/> Show console
+      </label>
+    </div>
+  </div>
 </div>
