@@ -1,0 +1,19 @@
+{
+  "name": "Pong",
+  "version": "0.0.1",
+  "homepage": "",
+  "authors": [
+    "Diego Escares <diegoescares@gmail.cl>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "^1.7.8"
+  }
+}

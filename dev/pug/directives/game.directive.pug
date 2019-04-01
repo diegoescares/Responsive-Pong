@@ -1,0 +1,12 @@
+
+.game
+
+	.game__grid
+		div(ng-repeat="g in grid track by $index")
+
+	game-player(game="game" spot="left")
+	game-player(game="game" spot="right")
+	game-ball(game="game")
+
+	// pre.console {{game | json}} // Main game object
+
